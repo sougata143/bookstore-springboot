@@ -31,14 +31,21 @@ public class BookController {
         return bookService.save(book);
     }
 
-    @RequestMapping(value = "/delete/{id}")
-    public void deleteBooks(Long id){
+    @DeleteMapping("/delete/{id}")
+    public void deleteBooks(@PathVariable(value = "id")  Long id){
         bookService.delete(id);
     }
 
-    @RequestMapping(value = "/update/{id}")
-    public void updateBooks(long id, Book book){
+    @PutMapping("/update/{id}")
+    public void updateBooks(@PathVariable Long id, @RequestBody Book book){
         bookService.update(book);
     }
+
+    @GetMapping("/book/{id}")
+    public Book getBookById(@PathVariable("id") Long id){
+        return bookService.getById(id);
+    }
+
+
 
 }
