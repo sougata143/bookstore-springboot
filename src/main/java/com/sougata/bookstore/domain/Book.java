@@ -16,8 +16,8 @@ public class Book {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String name;
-    private String writer;
+    private String name,writer,publisher;
+    private int price;
 
     public Book() {
     }
@@ -82,7 +82,6 @@ public class Book {
         this.price = price;
     }
 
-    private String publisher;
-    private int price;
+
 
 }
