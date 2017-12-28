@@ -14,15 +14,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        //custom login page(no need in REST
-        /*
         http.authorizeRequests()
                 .anyRequest().authenticated()
                 .and()
-                .formLogin()
-                    .loginPage("/bookstore/api/")
-                    .loginProcessingUrl("/login")
-                    .permitAll();*/
+                .logout().permitAll();
 
     }
 }

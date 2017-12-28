@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: bookstore
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: SOUGATA ROY
+Implementation-Vendor-Id: com.sougata
+Created-By: IntelliJ IDEA
+Build-Jdk: 1.8.0_45
+Main-Class: ${start-class}
+

@@ -1,4 +1,7 @@
 package com.sougata.bookstore.repository;
 
-public interface UserReository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import com.sougata.bookstore.domain.User;
+
+public interface UserReository extends JpaRepository<User, Long> {
 }
