@@ -29,6 +29,14 @@ public class User {
     public User() {
     }
 
+    /*public User(User user) {
+        this.username = user.getUsername();
+        this.password = user.getPassword();
+        this.role = user.getRole();
+        this.contact = user.getContact();
+        this.userid = user.getUserid();
+    }*/
+
     @Override
     public String toString() {
         return "User{" +

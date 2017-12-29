@@ -1,12 +1,13 @@
-package com.sougata.bookstore.service;
+package com.sougata.bookstore.service.Impl;
 
 import com.sougata.bookstore.domain.Book;
 import com.sougata.bookstore.repository.BookRepository;
+import com.sougata.bookstore.service.BookService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @Service
-public class BookServiceImpl implements BookService{
+public class BookServiceImpl implements BookService {
 
     private BookRepository bookRepository;
 

@@ -1,7 +1,8 @@
-package com.sougata.bookstore.service;
+package com.sougata.bookstore.service.Impl;
 
 import com.sougata.bookstore.domain.User;
 import com.sougata.bookstore.repository.UserReository;
+import com.sougata.bookstore.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
