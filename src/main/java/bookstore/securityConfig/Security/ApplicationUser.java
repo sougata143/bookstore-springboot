@@ -1,12 +1,10 @@
-package com.sougata.bookstore.domain;
+package bookstore.securityConfig.Security;
 
+import com.sougata.bookstore.domain.User;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 public class ApplicationUser implements UserDetails, Cloneable{
     User user;

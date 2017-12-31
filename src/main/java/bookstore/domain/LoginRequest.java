@@ -1,4 +1,4 @@
-package com.sougata.bookstore.domain;
+package bookstore.domain;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package com.sougata.bookstore.domain;
+package bookstore.domain;
 
 import lombok.Data;
 import org.springframework.stereotype.Component;
@@ -15,30 +15,37 @@ public class User {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private long userid;
     private String username;
+    private String email;
     private String password;
-    private long enabled;
-
-    public User(String username, String password, int contact) {
-        this.username = username;
-        this.password = password;
-        this.enabled = enabled;
-    }
+    private String role;
+    private int enabled;
 
     public User() {
     }
 
-    /*public User(User user) {
-        this.username = user.getUsername();
-        this.password = user.getPassword();
-        this.contact = user.getContact();
-        this.userid = user.getUserid();
-    }*/
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public User(String username, String email, String password, String role, int enabled) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+
+        this.enabled = enabled;
+    }
 
     @Override
     public String toString() {
         return "User{" +
                 "userid=" + userid +
                 ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", enabled=" + enabled +
                 '}';
@@ -60,6 +67,14 @@ public class User {
         this.username = username;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -68,11 +83,11 @@ public class User {
         this.password = password;
     }
 
-    public long getEnabled() {
+    public int getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(long enabled) {
+    public void setEnabled(int enabled) {
         this.enabled = enabled;
     }
 }

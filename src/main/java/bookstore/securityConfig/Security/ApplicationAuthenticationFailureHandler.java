@@ -1,5 +1,6 @@
-package com.sougata.bookstore.securityConfig.Security;
+package bookstore.securityConfig.Security;
 
+import com.sougata.bookstore.securityConfig.Security.SecurityExceptionHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;

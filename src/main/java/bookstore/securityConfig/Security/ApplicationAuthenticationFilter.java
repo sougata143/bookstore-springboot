@@ -1,4 +1,4 @@
-package com.sougata.bookstore.securityConfig.Security;
+package bookstore.securityConfig.Security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sougata.bookstore.ApiException;

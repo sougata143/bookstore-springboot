@@ -1,14 +1,12 @@
-package com.sougata.bookstore.securityConfig;
+package bookstore.securityConfig;
 
 import com.sougata.bookstore.securityConfig.Security.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.oauth2.resource.JwtAccessTokenConverterConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -85,26 +83,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
-                .authorizeRequests()
-                .antMatchers("/api/user/**").permitAll()
-                .antMatchers("/api/books/").permitAll()
-                .antMatchers("/api/books/save").hasRole("ROLE ADMIN")
-                .antMatchers("/api/books/delete/").hasRole("ROLE ADMIN")
-                .antMatchers("/api/books/save").hasRole("ROLE MANAGER")
-                .anyRequest().authenticated().and()
-                .exceptionHandling().authenticationEntryPoint(authenticationEntryPoint)
-                .and().logout().logoutSuccessHandler(logoutSuccessHandler)
-                .and().csrf().disable()
-        ;
+            http
+                    .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                    .and()
+                    .authorizeRequests()
+                    .antMatchers("/api/user/**").hasRole("ROLE ADMIN")
+                    .antMatchers("/api/books/").permitAll()
+                    .antMatchers("/api/books/save").hasRole("ROLE ADMIN")
+                    .antMatchers("/api/books/delete/").hasRole("ROLE ADMIN")
+                    .antMatchers("/api/books/save").hasRole("ROLE MANAGER")
+                    .anyRequest().authenticated().and()
+                    .exceptionHandling().authenticationEntryPoint(authenticationEntryPoint)
+                    .and().logout().logoutSuccessHandler(logoutSuccessHandler)
+                    .and().csrf().disable()
+            ;
 
 //            Custom JWT based authetication
-        http.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
+            http.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
 
-        http.addFilterBefore(getApplicationAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
-        http.addFilterAfter(exceptionFilter, ChannelProcessingFilter.class);
+            http.addFilterBefore(getApplicationAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+            http.addFilterAfter(exceptionFilter, ChannelProcessingFilter.class);
 
     }
 

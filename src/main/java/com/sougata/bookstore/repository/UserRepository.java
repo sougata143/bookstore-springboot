@@ -5,6 +5,6 @@ import com.sougata.bookstore.domain.User;
 
 import java.util.Optional;
 
-public interface UserReository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
     User findByUsername(String username);
 }

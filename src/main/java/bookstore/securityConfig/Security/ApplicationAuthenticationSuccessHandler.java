@@ -1,4 +1,4 @@
-package com.sougata.bookstore.securityConfig.Security;
+package bookstore.securityConfig.Security;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.DefaultRedirectStrategy;

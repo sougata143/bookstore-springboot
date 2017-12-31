@@ -1,4 +1,4 @@
-package com.sougata.bookstore.service.Impl;
+package bookstore.service.Impl;
 
 import com.sougata.bookstore.domain.User;
 import com.sougata.bookstore.repository.UserRepository;
@@ -9,35 +9,35 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private UserRepository userRepository;
+    private UserRepository userReository;
 
     @Autowired
     public UserServiceImpl(UserRepository userRepository) {
-        this.userRepository = userRepository;
+        this.userReository = userRepository;
     }
 
     @Override
     public Iterable<User> list() {
-        return userRepository.findAll();
+        return userReository.findAll();
     }
 
     @Override
     public User save(User user) {
-        return userRepository.save(user);
+        return userReository.save(user);
     }
 
     @Override
     public User getById(long id) {
-        return userRepository.findOne(id);
+        return userReository.findOne(id);
     }
 
     @Override
     public void delete(Long id) {
-        userRepository.delete(id);
+        userReository.delete(id);
     }
 
     @Override
     public void update(User user) {
-        userRepository.save(user);
+        userReository.save(user);
     }
 }
