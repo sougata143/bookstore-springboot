@@ -17,11 +17,19 @@ import java.util.Map;
 
  @Component
 public class JwtToken {
+
+    /**
+     * Inject the value of <code>jwt.secret</code> from <code>application.properties</code> file
+     */
     @Value("Goblet of Fire")
     private String jwtSecret;
 
+    /**
+     * Inject the value of <code>jwt.expiration</code> from <code>application.properties</code> file
+     */
     @Value("60480")
-    private Long tokenExptiration;
+    private Long tokenExpiration;
+
 
     private String generateToken(Map<String, Object> claims){
         return Jwts.builder()
@@ -41,8 +49,9 @@ public class JwtToken {
     public String generateToken(UserDetails userDetails){
         Map<String, Object> claims = new HashMap<>();
         claims.put("sub", userDetails.getUsername());
+//        claims.put("audience", Constants.AudienceType.AUDIENCE_TYPE_USER.name());
+        claims.put("created", this.generateCurrentDate());
         claims.put("access", userDetails.getAuthorities());
-
         return this.generateToken(claims);
     }
 
@@ -135,7 +144,7 @@ public class JwtToken {
      */
 
     private Date generateExpiraationDate(){
-        return new Date(System.currentTimeMillis()+this.tokenExptiration*1000);
+        return new Date(System.currentTimeMillis()+this.tokenExpiration *1000);
     }
 
     /**

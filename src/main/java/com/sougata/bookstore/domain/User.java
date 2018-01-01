@@ -16,23 +16,20 @@ public class User {
     private long userid;
     private String username;
     private String password;
+    private String email;
     private long enabled;
+    private String authorities = UserRoleEnum.ROLE_ADMIN.name();
 
-    public User(String username, String password, int contact) {
+    public User(String username, String password, String email, long enabled, String authorities) {
         this.username = username;
         this.password = password;
+        this.email = email;
         this.enabled = enabled;
+        this.authorities = authorities;
     }
 
     public User() {
     }
-
-    /*public User(User user) {
-        this.username = user.getUsername();
-        this.password = user.getPassword();
-        this.contact = user.getContact();
-        this.userid = user.getUserid();
-    }*/
 
     @Override
     public String toString() {
@@ -40,7 +37,9 @@ public class User {
                 "userid=" + userid +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
                 ", enabled=" + enabled +
+                ", authorities='" + authorities + '\'' +
                 '}';
     }
 
@@ -68,11 +67,27 @@ public class User {
         this.password = password;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public long getEnabled() {
         return enabled;
     }
 
     public void setEnabled(long enabled) {
         this.enabled = enabled;
+    }
+
+    public String getAuthorities() {
+        return authorities;
+    }
+
+    public void setAuthorities(String authorities) {
+        this.authorities = authorities;
     }
 }
